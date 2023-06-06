@@ -24,15 +24,6 @@ jobs:
     needs: Build-Test-Publish
     runs-on: ubuntu-20.04 
     steps:
-      - shell: bash
-        env:
-            SUPER_SECRET: ${{ secrets.SSH_KEY }}
-        run: |
-          mkdir .ssh
-          cd .ssh
-          touch id_rsa
-          echo "$SUPER_SECRET" > id_rsa
-          cat id_rsa
       - run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' ./Pre-Prod-Argo-Project/values.yaml
       - name: Commit files
@@ -43,5 +34,6 @@ jobs:
           git commit -a -m "push to pre-prod"
           git remote remove origin
           git remote add origin git@github.com:tomKatzav96/Pre-Prod-Argo-Project.git
-          git push -u origin main
+          git push -u origin main https://{{ secrets.MY_TOKEN }}@github.com/tomKatzav96/Pre-Prod-Argo-Project.git
 
+          
