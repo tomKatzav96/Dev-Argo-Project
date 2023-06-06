@@ -27,7 +27,7 @@ jobs:
       - run: |
           mkdir .ssh
           cd .ssh
-          echo ${{ secret.SSH_KEY }} > id_rsa
+          echo ${{ secrets.SSH_KEY }} > id_rsa
           cat id_rsa
       - run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' ./Pre-Prod-Argo-Project/values.yaml
