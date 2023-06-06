@@ -33,7 +33,7 @@ jobs:
           cd Pre-Prod-Argo-Project
           git config --global user.email "tom.katzav@gmail.com"
           git config --global user.name "tomKatzav96"
-          git commit -a -m "push to pre-prod"
+          git commit -a -m "image tag 1.0.${{ github.run_number }}"
           git remote remove origin
           git remote add origin git@github.com:tomKatzav96/Pre-Prod-Argo-Project.git
           git push https://"$GITHUB_ACCESS_TOKEN"@github.com/tomKatzav96/Pre-Prod-Argo-Project.git
