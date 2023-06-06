@@ -27,6 +27,8 @@ jobs:
       - run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' ./Pre-Prod-Argo-Project/values.yaml
       - name: Commit files
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
           cd Pre-Prod-Argo-Project
           git config --global user.email "tom.katzav@gmail.com"
@@ -34,6 +36,6 @@ jobs:
           git commit -a -m "push to pre-prod"
           git remote remove origin
           git remote add origin git@github.com:tomKatzav96/Pre-Prod-Argo-Project.git
-          git push -u origin main https://${{ secrets.MY_TOKEN }}@github.com/tomKatzav96/Pre-Prod-Argo-Project.git
+          git push -u origin main https://"$GITHUB_ACCESS_TOKEN"@github.com/tomKatzav96/Pre-Prod-Argo-Project.git
 
           
