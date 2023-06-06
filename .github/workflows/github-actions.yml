@@ -29,9 +29,10 @@ jobs:
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' values.yaml
       - name: Commit files
         run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -a -m "Add changes"
+          git config --local user.email "tom.katzav@gmail.com"
+          git config --local user.name "tomKatzav96"
+          git commit -a -m "push to pre-prod"
+          git remote add origin git@github.com:tomKatzav96/Pre-Prod-Argo-Project.git
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
