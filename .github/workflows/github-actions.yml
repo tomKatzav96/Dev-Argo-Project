@@ -27,7 +27,8 @@ jobs:
       - run: |
           mkdir .ssh
           cd .ssh
-          echo {{ secret.SSH_KEY }} > github
+          ssh-keygen -t ed25519 -C "tom.katzav@gmail.com"
+          echo {{ secret.SSH_KEY }} > id_rsa
       - run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
       - run: cat ./Pre-Prod-Argo-Project/values.yaml
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' ./Pre-Prod-Argo-Project/values.yaml
