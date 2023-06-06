@@ -31,6 +31,7 @@ jobs:
           GITHUB_ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
         run: |
           cd Pre-Prod-Argo-Project
+          git remote -v
           git config --global user.email "tom.katzav@gmail.com"
           git config --global user.name "tomKatzav96"
           git commit -a -m "image tag 1.0.${{ github.run_number }}"
