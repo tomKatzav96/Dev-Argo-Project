@@ -27,7 +27,7 @@ jobs:
       # - name: Check out repository code
       #   uses: actions/checkout@v3
       - run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
-      - run: ./Pre-Prod-Argo-Project/values.yaml
+      - run: cat ./Pre-Prod-Argo-Project/values.yaml
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' ./Pre-Prod-Argo-Project/values.yaml
       - run: cat ./Pre-Prod-Argo-Project/values.yaml
       - name: Commit files
