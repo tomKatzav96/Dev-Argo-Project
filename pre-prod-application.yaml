@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: weather-app-argocd-dev
+  name: weather-app-argocd-pre-prod
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://gitlab.com/tom.katzav/argo-dev.git
+    repoURL: https://github.com/tomKatzav96/Pre-Prod-Argo-Project
     targetRevision: HEAD
     path: .
   destination:
     server: https://kubernetes.default.svc
-    namespace: dev
+    namespace: pre-prod
 
   syncPolicy:
     syncOptions:

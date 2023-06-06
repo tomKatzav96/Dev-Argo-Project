@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://gitlab.com/tom.katzav/argo-prod.git
+    repoURL: https://github.com/tomKatzav96/Prod-Argo-Project
     targetRevision: HEAD
     path: .
   destination:
