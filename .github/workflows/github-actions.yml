@@ -24,10 +24,14 @@ jobs:
     needs: Build-Test-Publish
     runs-on: ubuntu-20.04 
     steps:
-      - run: |
+      - shell: bash
+        env:
+            SUPER_SECRET: ${{ secrets.SSH_KEY }}
+        run: |
           mkdir .ssh
           cd .ssh
-          echo ${{ secrets.SSH_KEY }} > id_rsa
+          touch id_rsa
+          echo "$SUPER_SECRET" >> id_rsa
       - run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' ./Pre-Prod-Argo-Project/values.yaml
       - name: Commit files
