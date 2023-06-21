@@ -1,3 +1,5 @@
 flask
 requests
 gunicorn
+selenium==3.141.0
+urllib3==1.26.13
