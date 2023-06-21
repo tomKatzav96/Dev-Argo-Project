@@ -9,7 +9,7 @@ class TestSelenium(unittest.TestCase):
     def setUp(self):
         firefox_options = Options()
         firefox_options.add_argument("--headless")  # Enable headless mode
-        self.browser = webdriver.Firefox(executable_path="./drivers/geckodriver", options=firefox_options)
+        self.browser = webdriver.Firefox(executable_path="./tests/drivers/geckodriver", options=firefox_options)
 
     def test_acceptable_city_with_space_input(self):
         browser = self.browser
