@@ -27,7 +27,7 @@ jobs:
     steps:
       - run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
       - run: cat ./Pre-Prod-Argo-Project/values.yaml
-      - run: sed -i 's/1.1.[1-9][1-9]/1.0.${{ github.run_number }}/' ./Pre-Prod-Argo-Project/values.yaml
+      - run: sed -i 's/1.0.[1-9][1-9]/1.0.${{ github.run_number }}/' ./Pre-Prod-Argo-Project/values.yaml
       - run: cat ./Pre-Prod-Argo-Project/values.yaml
       - name: Commit files
         env:
