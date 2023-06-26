@@ -22,7 +22,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-        run: docker push tomkatzav/argo-weather:1.0.${{ github.run_number }}
+      - run: docker push tomkatzav/argo-weather:1.0.${{ github.run_number }}
 
   Update-Push: 
     needs: Build-Test-Publish
