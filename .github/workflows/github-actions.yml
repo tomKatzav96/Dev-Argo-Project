@@ -7,29 +7,38 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+
       - name: Build
         run: |
           docker build -t tomkatzav/argo-weather:1.0.${{ github.run_number }} ./app
           docker run -p 5000:5000 --name=argo-weather -d tomkatzav/argo-weather:1.0.${{ github.run_number }}
+
       - name: Test
         run: |
           pip install -r ./app/requirements.txt
           python3 ./tests/unit_test.py
           python3 ./tests/docker_image_test.py
           python3 ./tests/selenium_test.py
+
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - run: docker push tomkatzav/argo-weather:1.0.${{ github.run_number }}
+
 
   Update-Push: 
     needs: Build-Test-Publish
     runs-on: ubuntu-20.04 
     steps:
-      - run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
-      - run: sed -i 's/1.0.[1-9][1-9]/1.0.${{ github.run_number }}/g' Pre-Prod-Argo-Project/values.yaml
+      - name: Clone pre-prod repo
+        run: git clone https://github.com/tomKatzav96/Pre-Prod-Argo-Project.git
+
+      - name: Update helm value file
+        run: sed -i 's/1\.0\.[1-9][0-9]\{0,2\}/1.0.${{ github.run_number }}/g' Pre-Prod-Argo-Project/values.yaml
+        
       - name: Commit files
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
