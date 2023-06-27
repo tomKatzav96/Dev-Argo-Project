@@ -17,7 +17,10 @@ By adopting this CI/CD pipeline with GitOps approach, the project aims to optimi
 
 
 ## Acknowledgements
-...
+
+ - [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
+ - [Write your first Selenium script](https://www.selenium.dev/documentation/webdriver/getting_started/first_script/)
+ - [ArgoCD Tutorial for Beginners | GitOps CD for Kubernetes](https://www.youtube.com/watch?v=MeU5_k9ssrs&t=1861s)
 
 ## Badges
 

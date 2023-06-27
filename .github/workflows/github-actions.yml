@@ -1,6 +1,9 @@
 name: GitHub Actions
 run-name: Build, test and delivery to pre-produbtion env 
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
 jobs:
   Build-Test-Publish:
     runs-on: ubuntu-20.04 
