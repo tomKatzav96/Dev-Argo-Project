@@ -44,4 +44,10 @@ By adopting this CI/CD pipeline with GitOps approach, the project aims to optimi
 
 ## Roadmap
 
-- **...**
+- **Sending logs when the pipeline fails:** Implement automatic log capture and sending for efficient issue identification and troubleshooting.
+
+- **Add webhook for Argo trigger on code push:** Configure a webhook to activate Argo upon code push events.
+
+- **Run tests parallel:** Optimize test execution time by running independent tests concurrently.
+
+- **Add security best practice:** Implement secure coding practices, authentication, regular updates, secure communication, and security audits.
