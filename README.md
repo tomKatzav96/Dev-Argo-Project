@@ -1,7 +1,7 @@
 # CI-CD Pipeline with GitOps 
 
 CI-CD Pipeline with GitOps using GitHub Actions, ArgoCD, Kubernetes, and Helm charts.  
-this repository is the first stage of this project. you can see the [Pre-Prod-Argo-Project](http://example.com) repository for the next stage of this project.
+this repository is the first stage of this project. you can see the [Pre-Prod-Argo-Project](https://github.com/tomKatzav96/Pre-Prod-Argo-Project) repository for the next stage of this project.
 
 ![Image](argo-project.png "Architecture of the project")
 
